@@ -1,0 +1,520 @@
+
+	.mediaViewInfo {
+		--web-view-name: page 2 – 1;
+		--web-view-id: page_2__1;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-horizontally: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: page_2__1;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#page_2__1 {
+		position: absolute;
+		width: 1600px;
+		height: 1702px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: page 2 – 1;
+		--web-view-id: page_2__1;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-horizontally: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	#LOGO_u {
+		left: 160px;
+		top: 61px;
+		position: absolute;
+		overflow: visible;
+		width: 86px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Oswald;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 39px;
+		color: rgba(78,83,227,0.702);
+	}
+	#ABOUT_u {
+		left: 479px;
+		top: 83px;
+		position: absolute;
+		overflow: visible;
+		width: 78px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+	}
+	#PACKAGE_u {
+		left: 631px;
+		top: 83px;
+		position: absolute;
+		overflow: visible;
+		width: 108px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+	}
+	#SERVICES {
+		left: 812px;
+		top: 83px;
+		position: absolute;
+		overflow: visible;
+		width: 115px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+		text-transform: uppercase;
+	}
+	#BLOG_u {
+		left: 1021px;
+		top: 83px;
+		position: absolute;
+		overflow: visible;
+		width: 63px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+		text-transform: uppercase;
+	}
+	#HOME_va {
+		left: 341px;
+		top: 84px;
+		position: absolute;
+		overflow: visible;
+		width: 68px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+	}
+	#Rectangle_129_vb {
+		fill: rgba(131,134,235,1);
+		stroke: rgba(131,134,235,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_129_vb {
+		position: absolute;
+		overflow: visible;
+		width: 72px;
+		height: 4px;
+		left: 481px;
+		top: 71px;
+	}
+	#PODCAST_vc {
+		left: 1161px;
+		top: 83px;
+		position: absolute;
+		overflow: visible;
+		width: 106px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(0,0,0,1);
+		text-transform: uppercase;
+	}
+	#Icon_awesome-search_vd {
+		fill: rgba(131,134,235,1);
+	}
+	.Icon_awesome-search_vd {
+		overflow: visible;
+		position: absolute;
+		width: 37.494px;
+		height: 37.5px;
+		left: 1463.506px;
+		top: 68.25px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_open-person_ve {
+		fill: rgba(131,134,235,1);
+	}
+	.Icon_open-person_ve {
+		overflow: visible;
+		position: absolute;
+		width: 29.5px;
+		height: 29.5px;
+		left: 1532.5px;
+		top: 68.25px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_awesome-angle-down_vf {
+		fill: rgba(255,255,255,1);
+	}
+	.Icon_awesome-angle-down_vf {
+		overflow: visible;
+		position: absolute;
+		width: 39.811px;
+		height: 25.711px;
+		transform: matrix(1,0,0,1,1430.3995,517.7711) rotate(-89deg);
+		transform-origin: center;
+		left: 0px;
+		top: 0px;
+	}
+	#SentiDigital__is_the_first_age {
+		left: 202.5px;
+		top: 326px;
+		position: absolute;
+		overflow: visible;
+		width: 835.5px;
+		height: 392px;
+		line-height: 38px;
+		margin-top: -6.5px;
+		text-align: left;
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 25px;
+		color: rgba(246,99,47,1);
+		letter-spacing: 0.02px;
+	}
+	#ID81B20CDC-11A2-4B3B-8581-7479 {
+		position: absolute;
+		width: 254.5px;
+		height: 397px;
+		left: 1142.003px;
+		top: 272.254px;
+		overflow: visible;
+	}
+	#Rectangle_241 {
+		fill: transparent;
+		stroke: rgba(246,103,52,1);
+		stroke-width: 9px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_241 {
+		position: absolute;
+		overflow: visible;
+		width: 282px;
+		height: 431px;
+		left: 1128.253px;
+		top: 255.627px;
+	}
+	#Rectangle_289 {
+		fill: rgba(131,134,236,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_289 {
+		position: absolute;
+		overflow: visible;
+		width: 1600px;
+		height: 770px;
+		left: 0px;
+		top: 937px;
+	}
+	#LOGO_vk {
+		left: 124px;
+		top: 1005px;
+		position: absolute;
+		overflow: visible;
+		width: 239px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Oswald;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 109px;
+		color: rgba(255,255,255,0.702);
+	}
+	#ABOUT_vl {
+		left: 579px;
+		top: 1153px;
+		position: absolute;
+		overflow: visible;
+		width: 117px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 38px;
+		color: rgba(255,255,255,1);
+	}
+	#PACKAGE_vm {
+		left: 579px;
+		top: 1254px;
+		position: absolute;
+		overflow: visible;
+		width: 159px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 37px;
+		color: rgba(255,255,255,1);
+	}
+	#SERVICES_vn {
+		left: 581px;
+		top: 1355px;
+		position: absolute;
+		overflow: visible;
+		width: 169px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 37px;
+		color: rgba(255,255,255,1);
+		text-transform: uppercase;
+	}
+	#BLOG_vo {
+		left: 579px;
+		top: 1456px;
+		position: absolute;
+		overflow: visible;
+		width: 92px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 37px;
+		color: rgba(255,255,255,1);
+		text-transform: uppercase;
+	}
+	#HOME_vp {
+		left: 579px;
+		top: 1052px;
+		position: absolute;
+		overflow: visible;
+		width: 101px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 37px;
+		color: rgba(255,255,255,1);
+	}
+	#PODCAST_vq {
+		left: 581px;
+		top: 1556px;
+		position: absolute;
+		overflow: visible;
+		width: 156px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bahnschrift;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 37px;
+		color: rgba(255,255,255,1);
+		text-transform: uppercase;
+	}
+	#Icon_awesome-linkedin_vr {
+		fill: rgba(255,255,255,1);
+	}
+	.Icon_awesome-linkedin_vr {
+		overflow: visible;
+		position: absolute;
+		width: 49.238px;
+		height: 49.238px;
+		left: 1371.552px;
+		top: 1539.919px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_awesome-youtube_vs {
+		fill: rgba(255,255,255,1);
+	}
+	.Icon_awesome-youtube_vs {
+		overflow: visible;
+		position: absolute;
+		width: 55.016px;
+		height: 48.81px;
+		left: 1460.021px;
+		top: 1539.919px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Group_1191 {
+		position: absolute;
+		width: 53.092px;
+		height: 53.081px;
+		left: 1279.228px;
+		top: 1539.919px;
+		overflow: visible;
+	}
+	#Path_116_vu {
+		fill: rgba(255,255,255,1);
+	}
+	.Path_116_vu {
+		overflow: visible;
+		position: absolute;
+		width: 50.021px;
+		height: 48.434px;
+		left: 1.986px;
+		top: 2.323px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_awesome-instagram_vv {
+		fill: rgba(255,255,255,1);
+	}
+	.Icon_awesome-instagram_vv {
+		overflow: visible;
+		position: absolute;
+		width: 53.092px;
+		height: 53.081px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Ellipse_13_vw {
+		fill: rgba(131,134,236,1);
+	}
+	.Ellipse_13_vw {
+		position: absolute;
+		overflow: visible;
+		width: 7.199px;
+		height: 7.199px;
+		left: 36.895px;
+		top: 8.437px;
+	}
+	#Ellipse_14_vx {
+		fill: rgba(131,134,236,1);
+		stroke: rgba(255,255,255,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_14_vx {
+		position: absolute;
+		overflow: visible;
+		width: 26.996px;
+		height: 26.996px;
+		left: 13.498px;
+		top: 13.836px;
+	}
+	#Icon_awesome-linkedin_vy {
+		fill: rgba(131,134,235,1);
+	}
+	.Icon_awesome-linkedin_vy {
+		overflow: visible;
+		position: absolute;
+		width: 30.917px;
+		height: 30.917px;
+		left: 77.381px;
+		top: 765.83px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_awesome-youtube_vz {
+		fill: rgba(131,134,235,1);
+	}
+	.Icon_awesome-youtube_vz {
+		overflow: visible;
+		position: absolute;
+		width: 34.545px;
+		height: 30.648px;
+		left: 77.148px;
+		top: 811.247px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Group_985_v {
+		position: absolute;
+		width: 33.337px;
+		height: 33.33px;
+		left: 77.499px;
+		top: 718px;
+		overflow: visible;
+	}
+	#Path_116_v {
+		fill: rgba(131,134,235,1);
+	}
+	.Path_116_v {
+		overflow: visible;
+		position: absolute;
+		width: 31.408px;
+		height: 30.412px;
+		left: 1.247px;
+		top: 1.459px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Icon_awesome-instagram_v {
+		fill: rgba(131,134,235,1);
+	}
+	.Icon_awesome-instagram_v {
+		overflow: visible;
+		position: absolute;
+		width: 33.337px;
+		height: 33.329px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Ellipse_13_v {
+		fill: rgba(255,255,255,1);
+	}
+	.Ellipse_13_v {
+		position: absolute;
+		overflow: visible;
+		width: 4.52px;
+		height: 4.52px;
+		left: 23.167px;
+		top: 5.298px;
+	}
+	#Ellipse_14_v {
+		fill: transparent;
+		stroke: rgba(255,255,255,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_14_v {
+		position: absolute;
+		overflow: visible;
+		width: 16.951px;
+		height: 16.951px;
+		left: 8.476px;
+		top: 8.688px;
+	}

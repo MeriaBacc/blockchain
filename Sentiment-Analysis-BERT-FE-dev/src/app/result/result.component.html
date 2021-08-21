@@ -1,0 +1,1781 @@
+<div style="padding: 50px;" id="fullscrean">
+  <mat-grid-list cols="2" rowHeight="350px" [gutterSize]="'20px'">
+    <mat-grid-tile>
+      <div class="w-100 h-100">   <!-- fffffffffffffffffffffff -->
+        <h3 class="heeder">
+          All Comments Sentiment Analyse
+          <i role="button" data-toggle="modal" data-target="#AllCmntAnalyse1" class="fas fa-expand float-right "
+            style="cursor: pointer; padding-left: 50px;"></i>
+        </h3>
+
+
+        <div *ngIf="spinner1">
+          <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div *ngIf="!spinner1" style="display: block ;width:550px; height:600px;">
+          <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+            [chartType]="'doughnut'"
+            [datasets]="this.globalchartoption.sentiment.chartDatasets"
+            [labels]="this.globalchartoption.sentiment.chartLabels"
+            [colors]="this.globalchartoption.sentiment.chartColors"
+            [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+            (chartClick)="chartClicked($event)">
+          </canvas>
+
+          <!-- The Modal -->
+          <div class="modal fade" id="AllCmntAnalyse1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h3>
+                    All Comments Sentiment Analyse
+                  </h3>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <div style="display: block ;width:550px; height:450px; align-items: center;">
+                  <canvas baseChart [plugins]="pieChartPlugins" width="300px"
+                    [chartType]="this.globalchartoption.sentiment.chartType"
+                    [datasets]="this.globalchartoption.sentiment.chartDatasets"
+                    [labels]="this.globalchartoption.sentiment.chartLabels"
+                    [colors]="this.globalchartoption.sentiment.chartColors"
+                    [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+                    (chartClick)="chartClicked($event)">
+                  </canvas>
+                </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button data-toggle="modal" data-target="#filtredCmntAnalyse" id="filtredComments"
+              class="invisible"></button>
+            <div class="modal fade" id="filtredCmntAnalyse">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h3>
+                      All Comments Sentiment Analyse
+                    </h3>
+                    <button id="modelclose" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="table-responsive " style="overflow-y: scroll; height: 600px;">
+                      <table class="table w-100 table-striped ">
+                        <thead class="w-100">
+                          <tr>
+                            <th>id</th>
+                            <th>Post id</th>
+                            <th>Comments Content</th>
+                            <th>Class</th>
+                            <th>Sentiment</th>
+                          </tr>
+                        </thead>
+                        <tbody class="w-100">
+                          <tr *ngFor="let Comment of data_for_filterd_comments">
+                            <td> {{Comment._id}}</td>
+                            <td class="text-center">
+                              {{Comment.post_id}} <br>
+                              <button (click)="scroll_to(Comment.post_id)">
+                                Show Post
+                              </button>
+                            </td>
+                            <td>{{Comment.cmnt}}</td>
+                            <td>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{Comment.class.label}}</td>
+                                    <td>{{Comment.class.score}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{Comment.sentiment.label}}</td>
+                                    <td>{{Comment.sentiment.score}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      
+      <div class="w-100 h-100" style="padding: 2px;"> <!-- fffffffffffffffffffffffffffffffffff -->
+        <h3 class="heeder">
+          All Comments Classification
+          <i data-toggle="modal" data-target="#AllCmntClass" class="fas fa-expand float-right "
+            style="cursor: pointer;"></i>
+        </h3>
+        <div *ngIf="spinner2">
+          <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div *ngIf="!spinner2" style="display: block ;width:550px; height:500px; margin-left: 10px;">
+          <canvas style="margin-left: 5px;" baseChart [plugins]="pieChartPlugins" 
+          [chartType]="this.globalchartoption.class.chartType"
+            [datasets]="this.globalchartoption.class.chartDatasets"
+            [labels]="this.globalchartoption.class.chartLabels" 
+            [colors]="this.globalchartoption.class.chartColors"
+            [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+          </canvas>
+          <!-- The Modal -->
+          <div class="modal fade" id="AllCmntClass">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h3>
+                    All Comments Classification
+                  </h3>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <canvas baseChart [plugins]="pieChartPlugins" [chartType]="this.globalchartoption.class.chartType"
+                    [datasets]="this.globalchartoption.class.chartDatasets"
+                    [labels]="this.globalchartoption.class.chartLabels"
+                    [colors]="this.globalchartoption.class.chartColors"
+                    [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+                  </canvas>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="w-100 h-100" style="padding: 2px;"> <!-- fffffffffffffffffffffffffffffffffff -->
+        <h3 class="heeder">
+          Word Cloud
+          <i data-toggle="modal" data-target="#AllCmntClass" class="fas fa-expand float-right "
+            style="cursor: pointer;"></i>
+        </h3>
+        <div class="word-cloud heeder">
+          <angular-d3-cloud class="word-cloud" [data]="data_for_word_cloud" [width]="600" [height]="400" [padding]="2" font="serif"
+            [rotate]="get_rotate()" [autoFill]="true">
+          </angular-d3-cloud>
+        </div>
+      </div>
+
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      
+
+      <div class="w-100 h-100" style="padding: 2px;"> <!-- fffffffffffffffffffffffffffffffffff -->
+        <h3 class="heeder">
+          Sentiments over time
+          <i data-toggle="modal" data-target="#AllCmntClass" class="fas fa-expand float-right "
+            style="cursor: pointer;"></i>
+        </h3>
+      </div>
+
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+   
+
+    <div style="width: 100%; padding-top: 10px;">
+      <mat-accordion >
+        <mat-expansion-panel [expanded]="panelOpen1" id="api-recived-data-comment-only">
+          <mat-expansion-panel-header style="background-color: #F66734;">
+            <mat-panel-title  style="color: white; font-size: 15px;">
+              API received data (only commentes) 
+            </mat-panel-title>
+          </mat-expansion-panel-header >
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel >
+
+        <mat-expansion-panel [expanded]="panelOpen2" id="api-recived-data-post-and-comment">
+          <mat-expansion-panel-header style="background-color: #F66734;">
+            <mat-panel-title style="color: white; font-size: 15px;">
+              API received data (Posts & commentes) 
+            </mat-panel-title>
+          </mat-expansion-panel-header >
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="panelOpen3" id="api-social-media" >
+        <mat-expansion-panel-header style="background-color: #F66734;">
+          <mat-panel-title style="color: white; font-size: 15px;">
+            API social media
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngIf="resultsApi.length == 0">No API social media Capured in this project</div>
+        <div *ngIf="resultsApi.length > 0">
+
+
+
+          <div id="posts_div" class="table-responsive m-4 shadow" style="height: 850px;">  <!-- table -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Post Content</th>
+                  <th>Class</th>
+                  <th>Sentiment</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let post of this.resultsApi ;let ind = index">
+                  <tr attr.id="post_{{post.id}}">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>label</th>
+                            <th>score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ post.class.label }}</td>
+                            <td>{{ post.class.score }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>label</th>
+                            <th>score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ post.sentiment.label }}</td>
+                            <td>{{ post.sentiment.score }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                      <h4>{{ getCommentsSentimentAVG(post.comments) }} average based on {{post.comments.length}} reviews.
+                      </h4>
+                      <div class="star-ratings-css">
+                        <ul class="list-inline rating-list" *ngFor="let star of stars; let i = index" style="display: inline-block" > 
+                        <li 
+                            [ngClass]="{'selected': (i < math.round(getCommentsSentimentAVG(post.comments)) )}">
+                          <i class="fa fa-star"></i>
+                        </li> 
+                        </ul>
+                        <!-- <div class="star-ratings-css-top"
+                          attr.style="width:{{ getCommentsSentimentAVG(post.comments)*20 }}%">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <div class="star-ratings-css-bottom">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div> -->
+                      </div><br>
+    
+    
+    
+                      <button type="button" (click)="see_more_clicked( post.id ) " class="btn btn-primary"
+                        data-toggle="modal" attr.data-target="#model_{{ind+1}}">
+                        Show Details
+                      </button>
+    
+                      <!-- The Modal -->
+                      <div class="modal fade" attr.id="model_{{ind+1}}">
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+    
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Comments Analyse by Post : id ---> {{post.id}}</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <div class="row h-50">
+                                <div class="col">
+                                  <div style="display: block; width:500px; height:500px;">
+                                    <canvas style="height: 50%;" baseChart [plugins]="pieChartPlugins"
+                                      [chartType]="this.chartList[ind+1].sentiment.chartType"
+                                      [datasets]="this.chartList[ind+1].sentiment.chartDatasets"
+                                      [labels]="this.chartList[ind+1].sentiment.chartLabels"
+                                      [colors]="this.chartList[ind+1].sentiment.chartColors"
+                                      [options]="this.chartList[ind+1].sentiment.chartOptions" [legend]="true"
+                                      (chartClick)="chartInsidePostClicked($event, post.id )">
+                                    </canvas>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div style="display: block">
+                                    <canvas baseChart [plugins]="pieChartPlugins"
+                                      [chartType]="this.chartList[ind+1].class.chartType"
+                                      [datasets]="this.chartList[ind+1].class.chartDatasets"
+                                      [labels]="this.chartList[ind+1].class.chartLabels"
+                                      [colors]="this.chartList[ind+1].class.chartColors"
+                                      [options]="this.chartList[ind+1].class.chartOptions" [legend]="true">
+                                    </canvas>
+                                  </div>
+                                </div>
+    
+    
+                              </div>
+                              <div class="list-inline">
+                                <div *ngFor="let fltr of this.filters"
+                                  class="alert alert-info alert-dismissible list-inline-item" style="width: 15%;">
+                                  <button (click)="removefiltr(fltr,post.id)" type="button" class="close"
+                                    data-dismiss="alert">&times;</button>
+                                  <strong>{{fltr}}</strong>
+                                </div>
+                              </div>
+                              <div class="table-responsive " style="overflow-y: scroll; height: 350px;">
+    
+                                <table class="table w-100 table-striped ">
+                                  <thead class="w-100">
+                                    <tr>
+                                      <th>id</th>
+                                      <th>Comments Content</th>
+                                      <th>Class</th>
+                                      <th>Sentiment</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="w-100">
+                                    <tr *ngFor="let Comment of filtredCmntsByPost">
+                                      <td>{{Comment._id}}</td>
+                                      <td>{{Comment.cmnt}}</td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.class.label}}</td>
+                                              <td>{{Comment.class.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.sentiment.label}}</td>
+                                              <td>{{Comment.sentiment.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!-- <div class="row">
+                                <div class="col">
+                                  <angular-d3-cloud 
+                [data]="data_for_word_cloud_by_post"
+                [padding]="2"
+                font="serif"
+                [rotate] = "get_rotate()"
+                [autoFill]="true">
+              </angular-d3-cloud>
+                                </div>
+                              </div> -->
+    
+    
+                            </div>
+    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+    
+                          </div>
+                        </div>
+                      </div>
+    
+    
+    
+    
+    
+                    </td>
+                  </tr>
+                  <tr>
+                    <!--
+                  <td colspan="4">
+                   
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td colspan="4">
+                    
+                  </td>
+                </tr> -->
+                </ng-container>
+    
+              </tbody>
+            </table>
+            <div *ngIf="spinner" class="text-center">
+              <!-- <div style="width: 200px; height: 200px; border-width: 15px;" class="spinner-border text-primary mt-5"></div> -->
+              <div class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+    
+          </div>
+
+
+
+
+        </div>
+
+
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="panelOpen4" id="excel-and-csv">
+        <mat-expansion-panel-header style="background-color: #F66734;">
+          <mat-panel-title style="color: white; font-size: 15px;">
+            Excel  or CSV files
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+
+
+
+          <div id="posts_div" class="table-responsive m-4 shadow" style="height: 850px;">  <!-- table -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Post Content</th>
+                  <th>Class</th>
+                  <th>Sentiment</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let post of this.results | slice:1 ;let ind = index">
+                  <tr attr.id="post_{{post.id}}">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>label</th>
+                            <th>score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ post.class.label }}</td>
+                            <td>{{ post.class.score }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>label</th>
+                            <th>score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ post.sentiment.label }}</td>
+                            <td>{{ post.sentiment.score }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                      <h4>{{ getCommentsSentimentAVG(post.comments) }} average based on {{post.comments.length}} reviews.
+                      </h4>
+                      <div class="star-ratings-css">
+                        <ul class="list-inline rating-list" *ngFor="let star of stars; let i = index" style="display: inline-block" > 
+                        <li 
+                            [ngClass]="{'selected': (i < math.round(getCommentsSentimentAVG(post.comments)) )}">
+                          <i class="fa fa-star"></i>
+                        </li> 
+                        </ul>
+                        <!-- <div class="star-ratings-css-top"
+                          attr.style="width:{{ getCommentsSentimentAVG(post.comments)*20 }}%">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <div class="star-ratings-css-bottom">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div> -->
+                      </div><br>
+    
+    
+    
+                      <button type="button" (click)="see_more_clicked( post.id ) " class="btn btn-primary"
+                        data-toggle="modal" attr.data-target="#model_{{ind+1}}">
+                        Show Details
+                      </button>
+    
+                      <!-- The Modal -->
+                      <div class="modal fade" attr.id="model_{{ind+1}}">
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+    
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Comments Analyse by Post : id ---> {{post.id}}</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <div class="row h-50">
+                                <div class="col">
+                                  <div style="display: block; width:500px; height:500px;">
+                                    <canvas style="height: 50%;" baseChart [plugins]="pieChartPlugins"
+                                      [chartType]="this.chartList[ind+1].sentiment.chartType"
+                                      [datasets]="this.chartList[ind+1].sentiment.chartDatasets"
+                                      [labels]="this.chartList[ind+1].sentiment.chartLabels"
+                                      [colors]="this.chartList[ind+1].sentiment.chartColors"
+                                      [options]="this.chartList[ind+1].sentiment.chartOptions" [legend]="true"
+                                      (chartClick)="chartInsidePostClicked($event, post.id )">
+                                    </canvas>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div style="display: block">
+                                    <canvas baseChart [plugins]="pieChartPlugins"
+                                      [chartType]="this.chartList[ind+1].class.chartType"
+                                      [datasets]="this.chartList[ind+1].class.chartDatasets"
+                                      [labels]="this.chartList[ind+1].class.chartLabels"
+                                      [colors]="this.chartList[ind+1].class.chartColors"
+                                      [options]="this.chartList[ind+1].class.chartOptions" [legend]="true">
+                                    </canvas>
+                                  </div>
+                                </div>
+    
+    
+                              </div>
+                              <div class="list-inline">
+                                <div *ngFor="let fltr of this.filters"
+                                  class="alert alert-info alert-dismissible list-inline-item" style="width: 15%;">
+                                  <button (click)="removefiltr(fltr,post.id)" type="button" class="close"
+                                    data-dismiss="alert">&times;</button>
+                                  <strong>{{fltr}}</strong>
+                                </div>
+                              </div>
+                              <div class="table-responsive " style="overflow-y: scroll; height: 350px;">
+    
+                                <table class="table w-100 table-striped ">
+                                  <thead class="w-100">
+                                    <tr>
+                                      <th>id</th>
+                                      <th>Comments Content</th>
+                                      <th>Class</th>
+                                      <th>Sentiment</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="w-100">
+                                    <tr *ngFor="let Comment of filtredCmntsByPost">
+                                      <td>{{Comment._id}}</td>
+                                      <td>{{Comment.cmnt}}</td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.class.label}}</td>
+                                              <td>{{Comment.class.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.sentiment.label}}</td>
+                                              <td>{{Comment.sentiment.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!-- <div class="row">
+                                <div class="col">
+                                  <angular-d3-cloud 
+                [data]="data_for_word_cloud_by_post"
+                [padding]="2"
+                font="serif"
+                [rotate] = "get_rotate()"
+                [autoFill]="true">
+              </angular-d3-cloud>
+                                </div>
+                              </div> -->
+    
+    
+                            </div>
+    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+    
+                          </div>
+                        </div>
+                      </div>
+    
+    
+    
+    
+    
+                    </td>
+                  </tr>
+                  <tr>
+                    <!--
+                  <td colspan="4">
+                   
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td colspan="4">
+                    
+                  </td>
+                </tr> -->
+                </ng-container>
+    
+              </tbody>
+            </table>
+            <div *ngIf="spinner" class="text-center">
+              <!-- <div style="width: 200px; height: 200px; border-width: 15px;" class="spinner-border text-primary mt-5"></div> -->
+              <div class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+    
+          </div>
+
+
+
+
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <div style="padding: 3%; text-align: center;">
+      <button mat-raised-button color="primary" style="cursor: pointer;" class="validatebutt" data-toggle="modal" data-target="#wordcomp"> Words Comparisation</button>
+  </div>
+  <div class="modal fade" id="wordcomp">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3>
+            Words Comparisation
+          </h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" id="words-comparisation">
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col" [ngClass]='fullpage'>
+                <section >
+                    <form class="example-form" style="width: 100%;">
+                        <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>type a word</mat-label>
+                        <input matInput #firstword>
+                        </mat-form-field>
+                    </form>
+                     <div class="example-button-container">
+                        <button mat-mini-fab color="primary" (click)="searchFirst(firstword.value)" style="margin-left: 10px;cursor: pointer;">
+                            <mat-icon>search</mat-icon>
+                        </button>
+                        <button (click)="second()" mat-mini-fab color="primary" style="margin-left: 10px;margin-right: 10px; cursor: pointer;">
+                          <mat-icon *ngIf="!ss">add_circle_outline</mat-icon>
+                          <mat-icon *ngIf="ss">remove_circle_outline</mat-icon>
+                      </button>
+                    </div> 
+                </section>
+                <div *ngIf="search1clicked && searesult1.length === 0">
+                    no result
+                </div>
+
+                <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'" *ngIf="search1clicked && searesult1.length != 0">
+                  <mat-grid-tile>
+                    
+
+                    <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+                    [chartType]="'doughnut'"
+                    [datasets]="this.globalchartSerach1.sentiment.chartDatasets"
+                    [labels]="this.globalchartSerach1.sentiment.chartLabels"
+                    [colors]="this.globalchartSerach1.sentiment.chartColors"
+                    [options]="this.globalchartSerach1.sentiment.chartOptions" [legend]="true"
+                   >
+                  </canvas>
+
+
+
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    
+                    <canvas style="margin-left: 5px;" baseChart [plugins]="pieChartPlugins" 
+                    [chartType]="this.globalchartSerach1.class.chartType"
+                      [datasets]="this.globalchartSerach1.class.chartDatasets"
+                      [labels]="this.globalchartSerach1.class.chartLabels" 
+                      [colors]="this.globalchartSerach1.class.chartColors"
+                      [options]="this.globalchartSerach1.class.chartOptions" [legend]="false">
+                    </canvas>
+
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="2" style="overflow-y:scroll;overflow-x:scroll;">
+                    
+                    <table class="table" style="display: flow-root; margin-top: auto;">
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Post Content</th>
+                          <th>Class</th>
+                          <th>Sentiment</th>
+                          <th>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngFor="let post of this.searesult1 ;let ind = index">
+                          <tr attr.id="post_{{post.id}}">
+                            <td>{{ post.id }}</td>
+                            <td *ngIf="post.type == 'Post'">{{ post.content }}</td>
+                            <td *ngIf="post.type == 'Comment'">{{ post.cmnt }}</td>
+                            <td>
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{ post.class.label }}</td>
+                                    <td>{{ post.class.score }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{ post.sentiment.label }}</td>
+                                    <td>{{ post.sentiment.score }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                              {{ post.type }}
+                            </td>
+                            <!-- <td>
+                              <h4>{{ getCommentsSentimentAVG(post.comments) }} average based on {{post.comments.length}} reviews.
+                              </h4>
+                              <div class="star-ratings-css">
+                                <ul class="list-inline rating-list" *ngFor="let star of stars; let i = index" style="display: inline-block" > 
+                                  <li 
+                                      [ngClass]="{'selected': (i < math.floor(getCommentsSentimentAVG(post.comments)) )}">
+                                    <i class="fa fa-star"></i>
+                                  </li> 
+                                  </ul>
+                              </div><br>
+                            </td> -->
+                          </tr>
+                          <tr>
+                        </ng-container>
+                      </tbody>
+                    </table>
+
+
+
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+        
+                
+              </div>
+              <div class="col border-left" *ngIf="ss">  <!-- *NgIf="false" -->
+                <section>
+                    <form class="example-form" >
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>type a word</mat-label>
+                        <input matInput #secondeword>
+                        </mat-form-field>
+                    </form>
+                    <div class="example-button-container">
+                        <button mat-mini-fab color="primary" (click)="searchSeconde(secondeword.value)" aria-label="Example icon button with a home icon">
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+                </section>
+                <div *ngIf="search2clicked && searesult2.length === 0">
+                  no result
+              </div>
+
+                <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'" *ngIf="search2clicked && searesult2.length != 0">
+                  <mat-grid-tile>
+                    
+                    <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+                    [chartType]="'doughnut'"
+                    [datasets]="this.globalchartSerach2.sentiment.chartDatasets"
+                    [labels]="this.globalchartSerach2.sentiment.chartLabels"
+                    [colors]="this.globalchartSerach2.sentiment.chartColors"
+                    [options]="this.globalchartSerach2.sentiment.chartOptions" [legend]="true"
+                   >
+                  </canvas>
+
+
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    
+                    <canvas style="margin-left: 5px;" baseChart [plugins]="pieChartPlugins" 
+                    [chartType]="this.globalchartSerach2.class.chartType"
+                      [datasets]="this.globalchartSerach2.class.chartDatasets"
+                      [labels]="this.globalchartSerach2.class.chartLabels" 
+                      [colors]="this.globalchartSerach2.class.chartColors"
+                      [options]="this.globalchartSerach2.class.chartOptions" [legend]="false">
+                    </canvas>
+
+                  </mat-grid-tile>
+                  <mat-grid-tile  [colspan]="2" [rowspan]="2" style="overflow-y:scroll;overflow-x:scroll;">
+                    
+
+                    <table class="table" style="display: flow-root; margin-top: auto;">
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Post Content</th>
+                          <th>Class</th>
+                          <th>Sentiment</th>
+                          <th>Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngFor="let post of this.searesult2 | slice:1 ;let ind = index">
+                          <tr attr.id="post_{{post.id}}">
+                            <td>{{ post.id }}</td>
+                            <td *ngIf="post.type == 'Post'">{{ post.content }}</td>
+                            <td *ngIf="post.type == 'Comment'">{{ post.cmnt }}</td>
+                            <td>
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{ post.class.label }}</td>
+                                    <td>{{ post.class.score }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>label</th>
+                                    <th>score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{ post.sentiment.label }}</td>
+                                    <td>{{ post.sentiment.score }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                              {{ post.type }}
+                            </td>
+                            <!-- <td>
+                              <h4>{{ getCommentsSentimentAVG(post.comments) }} average based on {{post.comments.length}} reviews.
+                              </h4>
+                              <div class="star-ratings-css">
+                                <ul class="list-inline rating-list" *ngFor="let star of stars; let i = index" style="display: inline-block" > 
+                                  <li 
+                                      [ngClass]="{'selected': (i < math.floor(getCommentsSentimentAVG(post.comments)) )}">
+                                    <i class="fa fa-star"></i>
+                                  </li> 
+                                  </ul>
+                              </div><br>
+                            </td> -->
+                          </tr>
+                          <tr>
+                        </ng-container>
+                      </tbody>
+                    </table>
+
+
+                  </mat-grid-tile>
+                </mat-grid-list>
+                
+              </div>
+            </div>
+          </div>
+          
+      
+        </div>
+        <div class="modal-footer" *ngIf="search2clicked && searesult2.length != 0"  attr.style="display: flow-root; background: linear-gradient(to right, #FC9466 {{this.x}}%, #6D66FC {{this.y}}%)" >
+            <div style="float: left;">First Word {{firstword.value}} </div><div style="float: right;">Seconde Word  {{secondeword.value}}</div>
+      </div>
+      </div>
+    </div>
+  </div>  
+  </div>
+</div>
+
+
+<!-- <div class="mt-5 h-100">
+  <div class="pt-4 ">
+    <div class="row h-100">
+      <div style="width: 90%;padding: 5%;">
+        <div class="row">
+          <div class="col">
+          
+            <mat-accordion>
+              <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    API received data (only commentes) 
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>This is the primary content of the panel.</p>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    API received data (Posts & commentes) 
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>This is the primary content of the panel.</p>
+              </mat-expansion-panel>
+ 
+            <mat-expansion-panel >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  API social media
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>This is the primary content of the panel.</p>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Excel  or CSV files
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div>
+
+
+                
+
+
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <div style="padding: 3%; text-align: center;">
+              <p>word comparison</p>
+          </div>  
+          </div>
+          <div class="col">
+
+            <mat-grid-list cols="2" rowHeight="250px">
+              <mat-grid-tile>
+                
+
+                <div class="w-100  h-100">   
+                  <h3>
+                    All Comments Sentiment Analyse
+                    <i role="button" data-toggle="modal" data-target="#AllCmntAnalyse" class="fas fa-expand float-right "
+                      style="cursor: pointer;"></i>
+                  </h3>
+        
+        
+                  <div *ngIf="spinner1">
+                    <div class="lds-grid">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div *ngIf="!spinner1" style="display: block ;width:350px; height:350px;">
+                    <canvas baseChart [plugins]="pieChartPlugins" width="350px"
+                      [chartType]="'doughnut'"
+                      [datasets]="this.globalchartoption.sentiment.chartDatasets"
+                      [labels]="this.globalchartoption.sentiment.chartLabels"
+                      [colors]="this.globalchartoption.sentiment.chartColors"
+                      [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+                      (chartClick)="chartClicked($event)">
+                    </canvas>
+        
+                    <div class="modal fade" id="AllCmntAnalyse">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+        
+                          <div class="modal-header">
+                            <h3>
+                              All Comments Sentiment Analyse
+                            </h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+        
+                          <div class="modal-body">
+                            <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+                              [chartType]="this.globalchartoption.sentiment.chartType"
+                              [datasets]="this.globalchartoption.sentiment.chartDatasets"
+                              [labels]="this.globalchartoption.sentiment.chartLabels"
+                              [colors]="this.globalchartoption.sentiment.chartColors"
+                              [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+                              (chartClick)="chartClicked($event)">
+                            </canvas>
+        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div>
+                      <button data-toggle="modal" data-target="#filtredCmntAnalyse" id="filtredComments"
+                        class="invisible"></button>
+                      <div class="modal fade" id="filtredCmntAnalyse">
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+        
+                            <div class="modal-header">
+                              <h3>
+                                All Comments Sentiment Analyse
+                              </h3>
+                              <button id="modelclose" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+        
+                            <div class="modal-body">
+                              <div class="table-responsive " style="overflow-y: scroll; height: 600px;">
+                                <table class="table w-100 table-striped ">
+                                  <thead class="w-100">
+                                    <tr>
+                                      <th>id</th>
+                                      <th>Post id</th>
+                                      <th>Comments Content</th>
+                                      <th>Class</th>
+                                      <th>Sentiment</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="w-100">
+                                    <tr *ngFor="let Comment of data_for_filterd_comments">
+                                      <td> {{Comment._id}}</td>
+                                      <td class="text-center">
+                                        {{Comment.post_id}} <br>
+                                        <button (click)="scroll_to(Comment.post_id)">
+                                          Show Post
+                                        </button>
+                                      </td>
+                                      <td>{{Comment.cmnt}}</td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.class.label}}</td>
+                                              <td>{{Comment.class.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>label</th>
+                                              <th>score</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>{{Comment.sentiment.label}}</td>
+                                              <td>{{Comment.sentiment.score}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+
+
+              </mat-grid-tile>
+              <mat-grid-tile>
+                
+
+
+                <div class="w-100  h-100">
+                  <h3>
+                    All Comments Classification
+                    <i data-toggle="modal" data-target="#AllCmntClass" class="fas fa-expand float-right "
+                      style="cursor: pointer;"></i>
+                  </h3>
+                  <div *ngIf="spinner2">
+                    <div class="lds-grid">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div *ngIf="!spinner2" style="display: block">
+                    <canvas baseChart [plugins]="pieChartPlugins" [chartType]="this.globalchartoption.class.chartType"
+                      [datasets]="this.globalchartoption.class.chartDatasets"
+                      [labels]="this.globalchartoption.class.chartLabels" [colors]="this.globalchartoption.class.chartColors"
+                      [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+                    </canvas>
+                    <div class="modal fade" id="AllCmntClass">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+        
+                          <div class="modal-header">
+                            <h3>
+                              All Comments Classification
+                            </h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+        
+                          <div class="modal-body">
+                            <canvas baseChart [plugins]="pieChartPlugins" [chartType]="this.globalchartoption.class.chartType"
+                              [datasets]="this.globalchartoption.class.chartDatasets"
+                              [labels]="this.globalchartoption.class.chartLabels"
+                              [colors]="this.globalchartoption.class.chartColors"
+                              [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+                            </canvas>
+        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+              </mat-grid-tile>
+              <mat-grid-tile>
+                
+
+                <div class="" >
+                  <angular-d3-cloud  [data]="data_for_word_cloud" [width]="300" [height]="250" [padding]="2" font="serif"
+                    [rotate]="get_rotate()" [autoFill]="true">
+                  </angular-d3-cloud>
+                </div>
+
+
+              </mat-grid-tile>
+              <mat-grid-tile>4</mat-grid-tile>
+            </mat-grid-list>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+<!-- <div class="mt-5 h-75">
+  <div class="pt-4 ">
+    <div class="row h-100">
+      <div class="col-7 ">
+      <div class="w-100 m-4">
+        <mat-expansion-panel class="shadow ">
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                  <h4>API Received Data</h4>
+              </mat-panel-title>
+              <mat-panel-description>
+                 
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="row ">
+            <div class="col">
+              <div style="display: block">
+                <canvas style="height: 50%;" baseChart [plugins]="pieChartPlugins"
+                  [chartType]="this.chartList[0].sentiment.chartType"
+                  [datasets]="this.chartList[0].sentiment.chartDatasets"
+                  [labels]="this.chartList[0].sentiment.chartLabels"
+                  [colors]="this.chartList[0].sentiment.chartColors"
+                  [options]="this.chartList[0].sentiment.chartOptions" [legend]="true"
+                  (chartClick)="chartInsidePostClicked($event, this.results[0].id )">
+                </canvas>
+              </div>
+            </div>
+            <div class="col">
+              <div style="display: block">
+                <canvas baseChart [plugins]="pieChartPlugins"
+                  [chartType]="this.chartList[0].class.chartType"
+                  [datasets]="this.chartList[0].class.chartDatasets"
+                  [labels]="this.chartList[0].class.chartLabels"
+                  [colors]="this.chartList[0].class.chartColors"
+                  [options]="this.chartList[0].class.chartOptions" [legend]="true">
+                </canvas>
+              </div>
+            </div>
+
+
+          </div>
+      </mat-expansion-panel>
+      </div>
+      <div id="posts_div" class="table-responsive m-4 shadow" style="height: 850px;">  
+        <table class="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Post Content</th>
+              <th>Class</th>
+              <th>Sentiment</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let post of this.results | slice:1 ;let ind = index">
+              <tr attr.id="post_{{post.id}}">
+                <td>{{ post.id }}</td>
+                <td>{{ post.content }}</td>
+                <td>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>label</th>
+                        <th>score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ post.class.label }}</td>
+                        <td>{{ post.class.score }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>label</th>
+                        <th>score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ post.sentiment.label }}</td>
+                        <td>{{ post.sentiment.score }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <h4>{{ getCommentsSentimentAVG(post.comments) }} average based on {{post.comments.length}} reviews.
+                  </h4>
+                  <div class="star-ratings-css">
+                    <div class="star-ratings-css-top"
+                      attr.style="width:{{ getCommentsSentimentAVG(post.comments)*20 }}%">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="star-ratings-css-bottom">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                  </div><br>
+
+
+
+                  <button type="button" (click)="see_more_clicked( post.id ) " class="btn btn-primary"
+                    data-toggle="modal" attr.data-target="#model_{{ind+1}}">
+                    Show Details
+                  </button>
+
+                  <div class="modal fade" attr.id="model_{{ind+1}}">
+                    <div class="modal-dialog modal-xl">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title">Comments Analyse by Post : id  {{post.id}}</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div class="row h-50">
+                            <div class="col">
+                              <div style="display: block; width:300px; height:300px;">
+                                <canvas style="height: 50%;" baseChart [plugins]="pieChartPlugins"
+                                  [chartType]="this.chartList[ind+1].sentiment.chartType"
+                                  [datasets]="this.chartList[ind+1].sentiment.chartDatasets"
+                                  [labels]="this.chartList[ind+1].sentiment.chartLabels"
+                                  [colors]="this.chartList[ind+1].sentiment.chartColors"
+                                  [options]="this.chartList[ind+1].sentiment.chartOptions" [legend]="true"
+                                  (chartClick)="chartInsidePostClicked($event, post.id )">
+                                </canvas>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div style="display: block">
+                                <canvas baseChart [plugins]="pieChartPlugins"
+                                  [chartType]="this.chartList[ind+1].class.chartType"
+                                  [datasets]="this.chartList[ind+1].class.chartDatasets"
+                                  [labels]="this.chartList[ind+1].class.chartLabels"
+                                  [colors]="this.chartList[ind+1].class.chartColors"
+                                  [options]="this.chartList[ind+1].class.chartOptions" [legend]="true">
+                                </canvas>
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div class="list-inline">
+                            <div *ngFor="let fltr of this.filters"
+                              class="alert alert-info alert-dismissible list-inline-item" style="width: 15%;">
+                              <button (click)="removefiltr(fltr,post.id)" type="button" class="close"
+                                data-dismiss="alert">&times;</button>
+                              <strong>{{fltr}}</strong>
+                            </div>
+                          </div>
+                          <div class="table-responsive " style="overflow-y: scroll; height: 350px;">
+
+                            <table class="table w-100 table-striped ">
+                              <thead class="w-100">
+                                <tr>
+                                  <th>id</th>
+                                  <th>Comments Content</th>
+                                  <th>Class</th>
+                                  <th>Sentiment</th>
+                                </tr>
+                              </thead>
+                              <tbody class="w-100">
+                                <tr *ngFor="let Comment of filtredCmntsByPost">
+                                  <td>{{Comment._id}}</td>
+                                  <td>{{Comment.cmnt}}</td>
+                                  <td>
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>label</th>
+                                          <th>score</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>{{Comment.class.label}}</td>
+                                          <td>{{Comment.class.score}}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td>
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>label</th>
+                                          <th>score</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>{{Comment.sentiment.label}}</td>
+                                          <td>{{Comment.sentiment.score}}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+                </td>
+              </tr>
+              <tr>
+            </ng-container>
+
+          </tbody>
+        </table>
+        <div *ngIf="spinner" class="text-center">
+          <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+      <div class="col-4 p-2 text-center py-auto">
+        <div class="w-100 shadow m-3 p-4">   
+          <h3>
+            All Comments Sentiment Analyse
+            <i role="button" data-toggle="modal" data-target="#AllCmntAnalyse" class="fas fa-expand float-right "
+              style="cursor: pointer;"></i>
+          </h3>
+
+
+          <div *ngIf="spinner1">
+            <div class="lds-grid">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div *ngIf="!spinner1" style="display: block ;width:400px; height:400px;">
+            <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+              [chartType]="this.globalchartoption.sentiment.chartType"
+              [datasets]="this.globalchartoption.sentiment.chartDatasets"
+              [labels]="this.globalchartoption.sentiment.chartLabels"
+              [colors]="this.globalchartoption.sentiment.chartColors"
+              [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+
+            <div class="modal fade" id="AllCmntAnalyse">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h3>
+                      All Comments Sentiment Analyse
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body">
+                    <canvas baseChart [plugins]="pieChartPlugins" width="250px"
+                      [chartType]="this.globalchartoption.sentiment.chartType"
+                      [datasets]="this.globalchartoption.sentiment.chartDatasets"
+                      [labels]="this.globalchartoption.sentiment.chartLabels"
+                      [colors]="this.globalchartoption.sentiment.chartColors"
+                      [options]="this.globalchartoption.sentiment.chartOptions" [legend]="true"
+                      (chartClick)="chartClicked($event)">
+                    </canvas>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button data-toggle="modal" data-target="#filtredCmntAnalyse" id="filtredComments"
+                class="invisible"></button>
+              <div class="modal fade" id="filtredCmntAnalyse">
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <h3>
+                        All Comments Sentiment Analyse
+                      </h3>
+                      <button id="modelclose" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                      <div class="table-responsive " style="overflow-y: scroll; height: 600px;">
+                        <table class="table w-100 table-striped ">
+                          <thead class="w-100">
+                            <tr>
+                              <th>id</th>
+                              <th>Post id</th>
+                              <th>Comments Content</th>
+                              <th>Class</th>
+                              <th>Sentiment</th>
+                            </tr>
+                          </thead>
+                          <tbody class="w-100">
+                            <tr *ngFor="let Comment of data_for_filterd_comments">
+                              <td> {{Comment._id}}</td>
+                              <td class="text-center">
+                                {{Comment.post_id}} <br>
+                                <button (click)="scroll_to(Comment.post_id)">
+                                  Show Post
+                                </button>
+                              </td>
+                              <td>{{Comment.cmnt}}</td>
+                              <td>
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>label</th>
+                                      <th>score</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>{{Comment.class.label}}</td>
+                                      <td>{{Comment.class.score}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td>
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>label</th>
+                                      <th>score</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>{{Comment.sentiment.label}}</td>
+                                      <td>{{Comment.sentiment.score}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 shadow m-3 p-4"> 
+          <h3>
+            All Comments Classification
+            <i data-toggle="modal" data-target="#AllCmntClass" class="fas fa-expand float-right "
+              style="cursor: pointer;"></i>
+          </h3>
+          <div *ngIf="spinner2">
+            <div class="lds-grid">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div *ngIf="!spinner2" style="display: block">
+            <canvas baseChart [plugins]="pieChartPlugins" [chartType]="this.globalchartoption.class.chartType"
+              [datasets]="this.globalchartoption.class.chartDatasets"
+              [labels]="this.globalchartoption.class.chartLabels" [colors]="this.globalchartoption.class.chartColors"
+              [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+            </canvas>
+            <div class="modal fade" id="AllCmntClass">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h3>
+                      All Comments Classification
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body">
+                    <canvas baseChart [plugins]="pieChartPlugins" [chartType]="this.globalchartoption.class.chartType"
+                      [datasets]="this.globalchartoption.class.chartDatasets"
+                      [labels]="this.globalchartoption.class.chartLabels"
+                      [colors]="this.globalchartoption.class.chartColors"
+                      [options]="this.globalchartoption.class.chartOptions" [legend]="false">
+                    </canvas>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 shadow m-3">
+          <angular-d3-cloud [data]="data_for_word_cloud" [width]="557" [height]="278" [padding]="2" font="serif"
+            [rotate]="get_rotate()" [autoFill]="true">
+          </angular-d3-cloud>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div> -->

@@ -1,0 +1,40 @@
+.conf-conf{
+    margin-left: 1%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+
+
+.conf-conf h1{
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: 0.05pc;
+    font-weight: bold;
+    color: rgb(5, 5, 61);
+    margin-bottom: 3%;
+}
+
+.conf-conf h2{
+    font-weight: bold;
+    font-size: 22px;
+    color: rgb(5, 5, 61);
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+
+.conf-conf h3{
+    text-align: center;
+    margin-top: -1%;
+    margin-bottom: 80px;
+    letter-spacing: 0.05pc;
+}
+
+.conf-conf p{
+    font-size: 22px;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    letter-spacing: 0.05pc;
+}

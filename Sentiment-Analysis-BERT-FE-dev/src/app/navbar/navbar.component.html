@@ -1,0 +1,99 @@
+      
+    <!-- <div class="d-flex justify-content-around bd-highlight">
+        <div class="p-2 bd-highlight align-items-center mr-auto"><a class="navbar-brand " href="#">Navbar</a></div>
+        <div class="p-2 bd-highlight align-items-center">
+         <ul class="p-2 bd-highlight align-items-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">PACKAGE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">SERVICES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">BLOG</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PODCAST</a>
+              </li>
+          </ul>
+
+    </div>
+    <div class="p-2 bd-highlight align-items-center ml-auto">
+    </div>
+
+</div> -->
+
+
+
+<mat-toolbar class="sticky">
+      <img height="50px" width="100px" src="assets/xd/logo.png">
+
+  <span class="example-spacer"></span>
+  <!-- <ul class="p-2 bd-highlight align-items-center">
+    <li class="nav-item active">
+      <a class="nav-link " href="#">HOME <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">ABOUT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">PACKAGE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">SERVICES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">PODCAST</a>
+      </li>
+  </ul> -->
+  <mat-nav-list class="inline-list">
+    <mat-list-item [routerLink]="['/home']" [routerLinkActive]="['active']">
+      <a matLine>HOME</a>
+    </mat-list-item>
+
+    <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active']">
+      <a matLine>ABOUT</a>
+    </mat-list-item>
+
+    <mat-list-item [routerLink]="['/our_package']" [routerLinkActive]="['active']">
+      <a matLine>PACKAGE</a>
+    </mat-list-item>
+
+    <mat-list-item [routerLink]="['/service']" [routerLinkActive]="['active']">
+      <a matLine>SERVICES</a>
+    </mat-list-item>
+
+    <mat-list-item [routerLink]="['/home5']" [routerLinkActive]="['active']">
+      <a matLine>BLOG</a>
+    </mat-list-item>
+
+    <mat-list-item [routerLink]="['/podcast']" [routerLinkActive]="['active']">
+      <a matLine>PODCAST</a>
+    </mat-list-item>
+
+  </mat-nav-list>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span [routerLink]="['/signin']">Sign In</span>
+    </button>
+    <button mat-menu-item >
+      <span [routerLink]="['/signup']">Sign Un</span>
+    </button>
+    <button mat-menu-item >
+      <span [routerLink]="['/request']">Call Request</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

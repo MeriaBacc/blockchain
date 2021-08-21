@@ -1,0 +1,60 @@
+<section class="login-block">
+  <div class="div_input">
+    <div class="row">
+      <div class="col-md-4 login-sec">
+        <h2 >Sign In</h2>
+        <form class="login-form" >
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate >
+              <div class="example-container" style="display:grid">
+                <div>
+                  <span>
+                    <input type="text" name="username" id="username" placeholder ="Email">
+                  </span>
+
+                  <span>
+                    <input type="password" name="password" id="password"  placeholder ="Password" [type]="hide ? 'password':'text'"/>
+                    <span class="eye_passowrd">
+                      <i class="material-icons" aria-hidden="true" matSuffix (click)="hide =!hide">
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                      </i>
+                    </span>
+                  </span>
+
+                </div>
+                <p><mat-checkbox  color="primary" formControlName="checkbox">Stay signed in</mat-checkbox></p>
+                <mat-divider></mat-divider>
+                <button style="margin: 10px;" [disabled]="!loginForm.valid" type="submit" mat-raised-button style="background-color: #F6632F;color: white;" mat-button>Sign In</button>
+                <div style="margin-top: 3%; margin-left: 23%; font-size: 12px;">
+                  <a href="#" >Forgot your Password ?</a>
+                </div>
+                <br>            
+                <div class="separator"> or sign in with</div>
+                <br> 
+    
+              </div>
+            </form>
+        </form>
+      </div>
+      <div class="col-md-8 banner-sec">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">                
+        <div class="social_mediam_bottom">
+            <ul class="list-unstyled list-inline">
+                <li class="list-inline-item"><a href=""><span class="social-"><i class="fab fa-instagram "></i></span></a></li>
+                <li class="list-inline-item"><a href=""><span class="social-"><i class="fab fa-linkedin "></i></span></a></li>
+                <li class="list-inline-item"><a href=""><span class="social-y"><i class="fab fa-youtube "></i></span></a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="two">
+          <p>Don't have an account? </p>
+          <p><a routerLink="signup">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

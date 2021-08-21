@@ -1,0 +1,36 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        
+        <div class="modal-header">
+            <h4 class="modal-title">Create New Project</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        
+        <div class="modal-body">
+            <form>
+                <div class="input-group mb-3 input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Title</span>
+                    </div>
+                    <input #title type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3 input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Description:</span>
+                    </div>
+                    <textarea  #disc class="form-control" rows="5" id="comment"></textarea>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="modal-footer">
+
+            <button (click)="create_project(title.value,disc.value)" type="button" class="btn btn-success" data-dismiss="modal">Create</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+</div>

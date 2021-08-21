@@ -1,0 +1,316 @@
+<!-- <div class="row">
+    <div class="col">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container pt-4">
+                <h1>Project Manager</h1>
+                <hr>
+                <div>
+                    <h3>
+                        {{fullname}}
+                    </h3>
+                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row h-75">
+    <div class="col-8 h-100">
+        <div class=" h-100 p-5" style="background-color: #f1f1f1;">
+            <div class="card-columns">
+                <div class="card bg-white m-4shadow-lg"  *ngFor="let projt of this.projects" style="width: min-content;">
+                    <div class="card-body text-center">
+                        <p class="card-text">{{projt.title}}</p>
+                        <a class="btn btn-success" routerLink="project/{{projt.id}}"> Open </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="modal fade" id="create_project">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create New Project</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        
+                        <div class="modal-body">
+                            <form>
+                                <div class="input-group mb-3 input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Title</span>
+                                    </div>
+                                    <input #title type="text" class="form-control">
+                                </div>
+                                <div class="input-group mb-3 input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Description:</span>
+                                    </div>
+                                    <textarea  #disc class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </form>
+                        </div>
+
+                        
+                        <div class="modal-footer">
+
+                            <button (click)="create_project(title.value,disc.value)" type="button" class="btn btn-success" data-dismiss="modal">Create</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-4" style="background-color: #f1f1f1;">
+        <div class="card bg-white shadow-lg m-4 " style="font-size: 80px; float: right;">
+            <div class="card-body text-center">
+                <h3>Create new project</h3>
+                <i class="fas fa-plus-square " data-toggle="modal" data-target="#create_project"
+                    style="font: optional;"></i>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="section">
+    <div class="row">
+  
+  
+  
+      <div class="col-1">
+        <ul class="social_media">
+          <li>
+            <button style="border: none;"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%"  viewBox="0 0 25.119 25.113">
+              <g id="Group_985" data-name="Group 985" transform="translate(-1532.5 -618.312)">
+                <path id="Path_116" data-name="Path 116" d="M1515.769,516.27l7.168-1.792s8.409-.551,9.1,0,4.411,2.481,4.411,2.481l1.379,8.133s.138,5.239,0,5.652l-1.379,4.136a21.587,21.587,0,0,1-3.446,2.206c-.689.138-9.236,0-9.236,0h-5.1l-2.9-1.379s-1.241-5.1-1.241-5.514-.689-7.582,0-8.961A24.885,24.885,0,0,0,1515.769,516.27Z" transform="translate(19.218 105.179)" fill="#8386eb"/>
+                <path id="Icon_awesome-instagram" data-name="Icon awesome-instagram" d="M12.557,8.356A6.439,6.439,0,1,0,19,14.794,6.428,6.428,0,0,0,12.557,8.356Zm0,10.625a4.186,4.186,0,1,1,4.186-4.186A4.194,4.194,0,0,1,12.557,18.98Zm8.2-10.888a1.5,1.5,0,1,1-1.5-1.5A1.5,1.5,0,0,1,20.761,8.092Zm4.264,1.524A7.432,7.432,0,0,0,23,4.354a7.481,7.481,0,0,0-5.262-2.029c-2.073-.118-8.288-.118-10.361,0A7.47,7.47,0,0,0,2.112,4.349,7.456,7.456,0,0,0,.083,9.611c-.118,2.073-.118,8.288,0,10.361a7.432,7.432,0,0,0,2.029,5.262,7.49,7.49,0,0,0,5.262,2.029c2.073.118,8.288.118,10.361,0A7.432,7.432,0,0,0,23,25.234a7.481,7.481,0,0,0,2.029-5.262c.118-2.073.118-8.282,0-10.356ZM22.346,22.2a4.238,4.238,0,0,1-2.387,2.387c-1.653.656-5.576.5-7.4.5s-5.755.146-7.4-.5A4.238,4.238,0,0,1,2.767,22.2c-.656-1.653-.5-5.576-.5-7.4s-.146-5.755.5-7.4A4.238,4.238,0,0,1,5.154,5c1.653-.656,5.576-.5,7.4-.5s5.755-.146,7.4.5a4.238,4.238,0,0,1,2.387,2.387c.656,1.653.5,5.576.5,7.4S23,20.549,22.346,22.2Z" transform="translate(1532.505 616.075)" fill="#8386eb"/>
+                <circle id="Ellipse_13" data-name="Ellipse 13" cx="1.703" cy="1.703" r="1.703" transform="translate(1549.955 622.304)" fill="#fff"/>
+                <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(1538.886 624.858)" fill="none" stroke="#fff" stroke-width="2">
+                  <circle cx="6.386" cy="6.386" r="6.386" stroke="none"/>
+                  <circle cx="6.386" cy="6.386" r="5.386" fill="none"/>
+                </g>
+              </g>
+            </svg>
+            </button>
+          </li>
+          <li>
+            <button style="border: none;"> 
+                <svg xmlns="http://www.w3.org/2000/svg"  width="100%"  viewBox="0 0 23.295 23.295">
+                    <path id="Icon_awesome-linkedin" data-name="Icon awesome-linkedin" d="M21.631,2.25H1.659A1.671,1.671,0,0,0,0,3.93V23.865a1.671,1.671,0,0,0,1.659,1.68H21.631a1.676,1.676,0,0,0,1.664-1.68V3.93A1.676,1.676,0,0,0,21.631,2.25ZM7.04,22.217H3.588V11.1H7.046V22.217ZM5.314,9.582a2,2,0,1,1,2-2,2,2,0,0,1-2,2ZM19.983,22.217H16.53V16.809c0-1.29-.026-2.948-1.794-2.948-1.8,0-2.075,1.4-2.075,2.855v5.5H9.209V11.1h3.312v1.518h.047a3.637,3.637,0,0,1,3.271-1.794c3.494,0,4.144,2.3,4.144,5.3Z" transform="translate(0 -2.25)" fill="#8386eb"/>
+                </svg>
+            </button>
+          </li>
+          <li>
+            <button style="border: none;"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 26.029 23.093">
+                        <path id="Icon_awesome-youtube" data-name="Icon awesome-youtube" d="M26.535,8.113a3.807,3.807,0,0,0-2.3-2.922C22.2,4.5,14.064,4.5,14.064,4.5S5.925,4.5,3.9,5.191a3.807,3.807,0,0,0-2.3,2.922A54.394,54.394,0,0,0,1.05,16.07a54.394,54.394,0,0,0,.544,7.956A3.731,3.731,0,0,0,3.9,26.9c2.03.691,10.169.691,10.169.691s8.139,0,10.169-.691a3.731,3.731,0,0,0,2.3-2.876,54.394,54.394,0,0,0,.544-7.956,54.394,54.394,0,0,0-.544-7.956ZM11.4,20.953V11.186l6.8,4.883-6.8,4.883Z" transform="translate(-1.05 -4.5)" fill="#8386eb"/>
+                    </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+  
+  
+  
+      <div class="col-4">
+        <div class="welcome">
+          <p>
+            Welcome in your space <span> {{fullname}}</span>  
+          </p>
+        </div>
+        <div class="projects_box_title">
+          <p>
+             My projects
+          </p>
+        </div>
+        <div style="overflow-y: scroll; height:200px;">
+          <mat-grid-list cols="2" rowHeight="2:1" >
+            <mat-grid-tile class="projects" *ngFor="let projt of this.projects">
+              <div class="project">
+                <p class="project_title" routerLink="project/{{projt.id}}">{{projt.title}}</p>
+                <svg class="del" xmlns="http://www.w3.org/2000/svg" width="15.75" height="18" viewBox="0 0 15.75 18">
+                  <path  id="Icon_awesome-trash" data-name="Icon awesome-trash" d="M15.188,1.125H10.969l-.33-.657A.844.844,0,0,0,9.882,0H5.864a.834.834,0,0,0-.752.468l-.33.657H.563A.563.563,0,0,0,0,1.687V2.812a.563.563,0,0,0,.563.563H15.188a.562.562,0,0,0,.563-.562V1.687A.562.562,0,0,0,15.188,1.125ZM1.87,16.418A1.688,1.688,0,0,0,3.554,18H12.2a1.687,1.687,0,0,0,1.684-1.582L14.625,4.5H1.125Z" fill="#fff"/>
+                </svg>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <!-- <div class="projects" *ngFor="let projt of this.projects">
+          <div class="project">
+            <p class="project_title" routerLink="project/{{projt.id}}">{{projt.title}}</p>
+            <svg class="del" xmlns="http://www.w3.org/2000/svg" width="15.75" height="18" viewBox="0 0 15.75 18">
+              <path  id="Icon_awesome-trash" data-name="Icon awesome-trash" d="M15.188,1.125H10.969l-.33-.657A.844.844,0,0,0,9.882,0H5.864a.834.834,0,0,0-.752.468l-.33.657H.563A.563.563,0,0,0,0,1.687V2.812a.563.563,0,0,0,.563.563H15.188a.562.562,0,0,0,.563-.562V1.687A.562.562,0,0,0,15.188,1.125ZM1.87,16.418A1.688,1.688,0,0,0,3.554,18H12.2a1.687,1.687,0,0,0,1.684-1.582L14.625,4.5H1.125Z" fill="#fff"/>
+            </svg>
+            <svg class="change" xmlns="http://www.w3.org/2000/svg" width="17.5" height="17.5" viewBox="0 0 17.5 17.5">
+              <path id="Icon_awesome-pen-alt" data-name="Icon awesome-pen-alt" d="M17.019,2.535,14.964.48a1.641,1.641,0,0,0-2.321,0L10.71,2.413l4.376,4.376,1.933-1.933a1.641,1.641,0,0,0,0-2.321Zm-8.435-.7a1.367,1.367,0,0,0-1.933,0L2.59,5.893a.546.546,0,0,0,0,.773l.773.773a.547.547,0,0,0,.773,0l3.48-3.48.773.773-5.18,5.18A11.178,11.178,0,0,0,.005,16.581v.008a.82.82,0,0,0,.905.906,11.177,11.177,0,0,0,6.677-3.206l6.726-6.726L11.484,4.733l-2.9-2.9Z" transform="translate(0.001 0)" fill="#fff"/>
+            </svg>
+            
+          </div>
+        </div>                                         data-target="#create_projec"              -->
+        <div class="add_project">
+          <button data-toggle="modal"   (click)="openDialogProject()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="207" height="55" viewBox="0 0 207 55">
+              <g id="Group_1099" data-name="Group 1099" transform="translate(-201 -597)">
+                <g id="Group_1098" data-name="Group 1098" transform="translate(-150 25)">
+                  <rect id="Rectangle_138" data-name="Rectangle 138" width="207" height="55" rx="3" transform="translate(351 572)" fill="#8386eb"/>
+                </g>
+                <text id="Create_Project" data-name="Create Project" transform="translate(375 631)" fill="#fff" font-size="18" font-family="Montserrat-ExtraBold, Montserrat" font-weight="800" letter-spacing="-0.05em"><tspan x="-125.964" y="0">Create Project</tspan></text>
+                <path id="Icon_awesome-plus-circle" data-name="Icon awesome-plus-circle" d="M11.917.563A11.355,11.355,0,1,0,23.272,11.917,11.353,11.353,0,0,0,11.917.563ZM18.51,13.2a.551.551,0,0,1-.549.549H13.749v4.212a.551.551,0,0,1-.549.549H10.635a.551.551,0,0,1-.549-.549V13.749H5.874a.551.551,0,0,1-.549-.549V10.635a.551.551,0,0,1,.549-.549h4.212V5.874a.551.551,0,0,1,.549-.549H13.2a.551.551,0,0,1,.549.549v4.212h4.212a.551.551,0,0,1,.549.549Z" transform="translate(214.625 612.583)" fill="#fff"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+  
+  
+      <div class="col">
+        <div class="figure">
+            <img src="assets/xd/FFGG.jpg" width="100%" height="100%">
+          </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="modal fade" id="create_projec">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            
+            <div class="modal-header">
+                <h4 class="modal-title">Create New Project</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            
+            <div class="modal-body">
+                <form>
+                    <div class="input-group mb-3 input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title</span>
+                        </div>
+                        <input #title type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3 input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Description:</span>
+                        </div>
+                        <textarea  #disc class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            
+            <div class="modal-footer">
+
+                <button (click)="create_project(title.value,disc.value)" type="button" class="btn btn-success" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal hide" id="create_project2">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">✕</button>
+        <h3>Login to Website</h3>
+    </div>
+        <div class="modal-body" style="text-align:center;">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <div id="modalTab">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="login">
+                            <form method="post" action='' name="login_form">
+                                <p><input type="text" class="span12" name="eid" id="email" placeholder="Email"></p>
+                                <p><input type="password" class="span12" name="passwd" placeholder="Password"></p>
+                                <p><button type="submit" class="btn btn-primary">Sign in</button>
+                                <a href="#forgotpassword" data-toggle="tab">Forgot Password?</a>
+                                </p>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="forgotpassword">
+                            <form method="post" action='' name="forgot_password">
+                                <p>Hey this stuff happens, send us your email and we'll reset it for you!</p>
+                                <input type="text" class="span12" name="eid" id="email" placeholder="Email">
+                                <p><button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="#login" data-toggle="tab">Wait, I remember it now!</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="create_project" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+          </div>
+          <div class="modal-body">
+              
+              <!-- content goes here -->
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+                  <p class="help-block">Example block-level help text here.</p>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Check me out
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+  
+          </div>
+          <div class="modal-footer">
+              <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                  <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                  </div>
+                  <div class="btn-group btn-delete hidden" role="group">
+                      <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+                  </div>
+                  <div class="btn-group" role="group">
+                      <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
