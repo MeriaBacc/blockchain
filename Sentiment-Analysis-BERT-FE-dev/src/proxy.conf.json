@@ -1,7 +1,0 @@
-{
-    "/api/file/": {
-      "target": "http://localhost:8000",
-      "secure": false,
-      "timeout": 360000
-    }
-  }
